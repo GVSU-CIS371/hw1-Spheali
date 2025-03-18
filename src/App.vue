@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Beverage :isIced="currentTemp === 'Cold'" />
+    <Beverage :isIced="currentTemp === 'Cold'" :base="currentBase" :cream="currentCream" :syrup="currentSyrup" />
     <ul>
       <li>
         <template v-for="temp in temps" :key="temp">
@@ -17,12 +17,60 @@
         </template>
       </li>
     </ul>
+    <ul>
+      <li>
+        <template v-for="base in bases" :key="base">
+          <label>
+            <input
+              type="radio"
+              name="base"
+              :id="base.id"
+              :value="base"
+              v-model="currentBase"
+            />
+            {{ base.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="cream in creamers" :key="cream">
+          <label>
+            <input
+              type="radio"
+              name="cream"
+              :id="cream.id"
+              :value="cream"
+              v-model="currentCream"
+            />
+            {{ cream.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <template v-for="syrup in syrups" :key="syrup">
+          <label>
+            <input
+              type="radio"
+              name="syrup"
+              :id="syrup.id"
+              :value="syrup"
+              v-model="currentSyrup"
+            />
+            {{ syrup.name }}
+          </label>
+        </template>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup lang="ts">
 import Beverage from "./components/Beverage.vue";
-import { temps, currentTemp } from "./stores/beverage";
+import { temps, currentTemp, bases, currentBase, creamers, currentCream, syrups, currentSyrup } from "./stores/beverage";
 </script>
 
 <style lang="scss">
