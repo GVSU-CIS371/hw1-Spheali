@@ -85,7 +85,7 @@ const syrups: Ref<SyrupType[]> = ref([
 ]);
 
 const currentTemp = ref(temps.value[1]);
-const currentBase = ref(bases.value[3]);
+const currentBase = ref(bases.value[2]);
 const currentCream = ref(creamers.value[1]);
 const currentSyrup = ref(syrups.value[1]);
 
